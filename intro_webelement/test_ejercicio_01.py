@@ -1,24 +1,26 @@
-# Ejercicio # 01
+# Ejercicio # 01  04mayo2023
 # 1. Ir a la página https://laboratorio.qaminds.com/
 # 2. Escribir un script que:
 #    a. Permita buscar un iphone desde la barra de búsqueda.
 #    b. Verificar que devuelve un resultado con una imagen que pertenece a un iphone.
 
-import time
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+#import time
+#from selenium import webdriver
+#from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from factory.webdriver_factory import get_driver, DriverType
 
-CHROME_DRIVER_PATH = "./drivers/chromedriver.exe"
-CHROME_SERVICE = Service(CHROME_DRIVER_PATH)
+#CHROME_DRIVER_PATH = "./drivers/chromedriver.exe"
+#CHROME_SERVICE = Service(CHROME_DRIVER_PATH)
 URL = "https://laboratorio.qaminds.com/"
 
 
 class TestBuscaElemento:
 
     def setup_method(self):
-        self.driver = webdriver.Chrome(service=CHROME_SERVICE)
-        self.driver.maximize_window()
+        #self.driver = webdriver.Chrome(service=CHROME_SERVICE)
+        self.driver = get_driver(DriverType.CHROME)
+        #self.driver.maximize_window()
         self.driver.implicitly_wait(10)
         self.driver.get(URL)
 
